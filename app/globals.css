@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-input: var(--input-bg);
+  --color-muted-foreground: var(--fg-muted);
+}
+
+:root {
+  --accent: hsl(38 95% 48%);
+  --accent-dark: hsl(38 95% 38%);
+  --accent-soft: hsl(38 95% 48% / 0.12);
+  --success: hsl(142 70% 40%);
+  --danger: hsl(0 72% 50%);
+  --warn: hsl(45 93% 47%);
+  --bg: #fafaf8;
+  --card: #ffffff;
+  --border: #e8e4dc;
+  --fg: #1a1714;
+  --fg-muted: #6b6460;
+  --input-bg: #f5f3f0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.peso {
+  font-variant-numeric: tabular-nums;
+}
