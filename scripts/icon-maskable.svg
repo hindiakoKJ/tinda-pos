@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Full bleed amber background (no rounded corners for maskable) -->
+  <rect width="512" height="512" fill="#F59E0B"/>
+
+  <!-- Bag body — centered with padding for safe zone -->
+  <path d="M186 240 L326 240 L304 368 H208 Z" fill="white"/>
+
+  <!-- Bag handle -->
+  <path d="M216 240 C216 190 256 176 256 176 C256 176 296 190 296 240"
+        fill="none" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Peso sign -->
+  <text x="256" y="330"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="92"
+        font-weight="900"
+        fill="#F59E0B">₱</text>
+</svg>
