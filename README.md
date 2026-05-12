@@ -65,7 +65,7 @@ git push -u origin main
 4. Add environment variable: `NODE_VERSION = 20`
 5. Deploy
 
-Your app will be live at `https://tinda-pos.pages.dev` (or your custom domain).
+Your app will be live at `https://tindapos.hnscorpph.com` (or your custom domain).
 
 ### 3. Custom domain (optional)
 In Cloudflare Pages → your project → **Custom domains** → add your domain.
@@ -89,7 +89,7 @@ npm install -g @bubblewrap/cli
 
 # Initialize TWA project (replace URL with your Cloudflare Pages URL)
 mkdir tinda-pos-twa && cd tinda-pos-twa
-bubblewrap init --manifest https://tinda-pos.pages.dev/manifest.json
+bubblewrap init --manifest https://tindapos.hnscorpph.com/manifest.json
 ```
 
 When prompted:
