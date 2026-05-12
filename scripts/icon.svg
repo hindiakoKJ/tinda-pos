@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Amber background with rounded corners -->
+  <rect width="512" height="512" rx="96" fill="#F59E0B"/>
+
+  <!-- Shopping bag body (white) -->
+  <path d="M168 218 L344 218 L316 370 H196 Z" fill="white"/>
+
+  <!-- Shopping bag handle (white, rounded) -->
+  <path d="M204 218 C204 160 256 148 256 148 C256 148 308 160 308 218"
+        fill="none" stroke="white" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Peso sign on bag (amber, bold) -->
+  <text x="256" y="322"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Arial Black, Arial, sans-serif"
+        font-size="108"
+        font-weight="900"
+        fill="#F59E0B">₱</text>
+
+  <!-- Horizontal lines of peso sign (amber) -->
+</svg>
