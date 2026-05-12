@@ -37,6 +37,11 @@ export default function RootLayout({
     <html lang="fil" className={`${inter.variable} h-full`}>
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js');})}`,
+          }}
+        />
       </head>
       <body className="h-full antialiased">
         <Providers>{children}</Providers>

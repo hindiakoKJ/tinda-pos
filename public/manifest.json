@@ -25,6 +25,22 @@
     }
   ],
   "categories": ["productivity", "finance", "business"],
+  "screenshots": [
+    {
+      "src": "/screenshots/screen-wide.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "TindaPOS Dashboard"
+    },
+    {
+      "src": "/screenshots/screen-narrow.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "TindaPOS POS Screen"
+    }
+  ],
   "shortcuts": [
     {
       "name": "Benta (POS)",
