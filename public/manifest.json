@@ -2,7 +2,8 @@
   "name": "TindaPOS",
   "short_name": "TindaPOS",
   "description": "Ang POS ng bawat tindahan",
-  "start_url": "/buod",
+  "id": "/buod",
+  "start_url": "/buod/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#FAFAF8",
@@ -28,13 +29,13 @@
     {
       "name": "Benta (POS)",
       "short_name": "POS",
-      "url": "/pos",
+      "url": "/pos/",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Buod ngayon",
       "short_name": "Buod",
-      "url": "/buod",
+      "url": "/buod/",
       "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     }
   ]
