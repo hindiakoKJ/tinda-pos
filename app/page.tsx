@@ -16,13 +16,13 @@ export default function LandingPage() {
           <Image src="/icons/icon-192.png" alt="TindaPOS" width={36} height={36} className="rounded-lg" />
           <span className="font-black text-white text-xl tracking-tight">TindaPOS</span>
         </div>
-        <Link
-          href="/buod"
+        <a
+          href="https://play.google.com/store/apps/details?id=com.hnscorp.tindapos"
           className="text-sm font-bold px-5 py-2 rounded-full"
           style={{ background: "white", color: "#F59E0B" }}
         >
-          Buksan ang App →
-        </Link>
+          ▶ Google Play
+        </a>
       </nav>
 
       {/* Hero */}
@@ -40,19 +40,12 @@ export default function LandingPage() {
           Simple, mabilis, at gumagana kahit walang internet. Para sa sari-sari store, carinderia, at lahat ng maliit na negosyo.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/buod"
+          <a
+            href="https://play.google.com/store/apps/details?id=com.hnscorp.tindapos"
             className="font-black text-lg px-8 py-4 rounded-full shadow-lg"
             style={{ background: "#F59E0B", color: "white" }}
           >
-            🛍️ Gamitin ang App
-          </Link>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.hnscorp.tindapos"
-            className="font-bold text-lg px-8 py-4 rounded-full border-2"
-            style={{ borderColor: "#F59E0B", color: "#F59E0B" }}
-          >
-            ▶ Google Play
+            ▶ I-download sa Google Play
           </a>
         </div>
       </section>
@@ -93,13 +86,13 @@ export default function LandingPage() {
       <section className="px-6 py-20 text-center">
         <h2 className="text-3xl font-black mb-4">Handa ka na ba?</h2>
         <p className="mb-8" style={{ color: "#6B6460" }}>Isang beses bayad. Walang subscription. Walang nakatagong bayad.</p>
-        <Link
-          href="/buod"
+        <a
+          href="https://play.google.com/store/apps/details?id=com.hnscorp.tindapos"
           className="inline-block font-black text-xl px-10 py-5 rounded-full shadow-xl"
           style={{ background: "#F59E0B", color: "white" }}
         >
-          🛍️ Simulan na — libre i-try
-        </Link>
+          ▶ I-download sa Google Play
+        </a>
       </section>
 
       {/* Footer */}
