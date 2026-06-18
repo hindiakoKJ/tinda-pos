@@ -4,15 +4,8 @@ import { useState } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { TrendingUp, TrendingDown } from "lucide-react";
 import { db } from "@/lib/db";
-import { formatPeso, startOfDay, startOfWeek, startOfMonth, cn } from "@/lib/utils";
-
-type Range = "today" | "week" | "month" | "all";
-const RANGE_LABELS: Record<Range, string> = {
-  today: "Ngayon",
-  week: "Linggong ito",
-  month: "Buwang ito",
-  all: "Lahat",
-};
+import { formatPeso, cn } from "@/lib/utils";
+import { DateRangePicker, buildRange, type DateRange } from "@/components/ui/DateRangePicker";
 
 interface ProductStat {
   productName: string;
@@ -24,17 +17,15 @@ interface ProductStat {
 }
 
 export function ProfitTable() {
-  const [range, setRange] = useState<Range>("today");
-
-  const rangeStart =
-    range === "today" ? startOfDay().getTime()
-    : range === "week" ? startOfWeek().getTime()
-    : range === "month" ? startOfMonth().getTime()
-    : 0;
+  const [range, setRange] = useState<DateRange>(buildRange("today"));
 
   const transactions = useLiveQuery(
-    () => db.transactions.where("createdAt").aboveOrEqual(rangeStart).toArray(),
-    [rangeStart]
+    () =>
+      db.transactions
+        .where("createdAt")
+        .between(range.start, range.end, true, true)
+        .toArray(),
+    [range.start, range.end]
   );
 
   // Aggregate per product
@@ -51,11 +42,13 @@ export function ProfitTable() {
     }
   }
 
-  const stats = Object.values(statMap).map((s) => ({
-    ...s,
-    profit: s.revenue - s.cogs,
-    margin: s.revenue > 0 ? ((s.revenue - s.cogs) / s.revenue) * 100 : 0,
-  })).sort((a, b) => b.profit - a.profit);
+  const stats = Object.values(statMap)
+    .map((s) => ({
+      ...s,
+      profit: s.revenue - s.cogs,
+      margin: s.revenue > 0 ? ((s.revenue - s.cogs) / s.revenue) * 100 : 0,
+    }))
+    .sort((a, b) => b.profit - a.profit);
 
   const totals = stats.reduce(
     (acc, s) => ({ revenue: acc.revenue + s.revenue, cogs: acc.cogs + s.cogs, profit: acc.profit + s.profit }),
@@ -64,22 +57,9 @@ export function ProfitTable() {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Range filter */}
-      <div className="flex gap-2 px-4 py-3 border-b border-[var(--border)] shrink-0 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-        {(Object.keys(RANGE_LABELS) as Range[]).map((r) => (
-          <button
-            key={r}
-            onClick={() => setRange(r)}
-            className={cn(
-              "shrink-0 h-9 px-4 rounded-full text-sm font-semibold transition-colors",
-              range === r
-                ? "bg-[var(--accent)] text-white"
-                : "bg-[var(--input-bg)] text-[var(--fg-muted)] hover:bg-[var(--border)]"
-            )}
-          >
-            {RANGE_LABELS[r]}
-          </button>
-        ))}
+      {/* Date range picker */}
+      <div className="px-4 pt-3 pb-3 border-b border-[var(--border)] shrink-0">
+        <DateRangePicker value={range} onChange={setRange} />
       </div>
 
       {/* Overall summary cards */}

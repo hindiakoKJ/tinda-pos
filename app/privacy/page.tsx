@@ -6,93 +6,113 @@ export const metadata = {
 export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-12 text-sm leading-relaxed" style={{ color: "#1A1714", fontFamily: "sans-serif" }}>
-      <h1 className="text-2xl font-bold mb-2" style={{ color: "#F59E0B" }}>TindaPOS — Privacy Policy</h1>
-      <p className="text-xs mb-8" style={{ color: "#6B6460" }}>Effective date: May 12, 2026</p>
+      <h1 className="text-2xl font-bold mb-2" style={{ color: "#0E8A82" }}>TindaPOS — Privacy Policy</h1>
+      <p className="text-xs mb-8" style={{ color: "#6B6460" }}>Effective date: June 18, 2026</p>
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">1. Overview</h2>
         <p>
-          TindaPOS is an offline-first point-of-sale application designed for Filipino sari-sari store owners.
-          We take your privacy seriously. This policy explains how we handle your data.
+          TindaPOS is an offline-first point-of-sale app for Filipino sari-sari store owners. Your business
+          data stays on your device. This policy explains exactly what stays private, and the one place a
+          third party is involved: ads on the free (LIBRE) tier.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">2. Data We Collect</h2>
-        <p className="mb-2"><strong>We collect no personal data.</strong></p>
+        <h2 className="text-lg font-bold mb-2">2. Your business data stays on your device</h2>
+        <p className="mb-2"><strong>We do not collect your business data.</strong></p>
         <p>
-          All data you enter into TindaPOS — including product names, prices, sales transactions,
-          and expenses — is stored exclusively on your device using your browser&apos;s local storage
-          (IndexedDB). This data never leaves your device.
+          Everything you enter — products, prices, sales, expenses, and utang (credit) records — is stored
+          only on your device (in the app&apos;s local database). It is never sent to us. We operate no server
+          and no cloud database for your data, so there is nothing on our side to leak or sell. No account or
+          login is required.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">3. No Servers, No Cloud</h2>
+        <h2 className="text-lg font-bold mb-2">3. Advertising on the free (LIBRE) tier</h2>
+        <p className="mb-2">
+          The free LIBRE tier shows a small banner ad served by <strong>Google AdMob</strong>. To do this,
+          the Google Mobile Ads SDK is included in the app and, on the LIBRE tier, receives a{" "}
+          <strong>device advertising identifier</strong> (Android Advertising ID / GAID) and standard request
+          data (such as IP address) in order to serve and measure ads — the same as most free apps.
+        </p>
+        <p className="mb-2">
+          Google AdMob does <strong>not</strong> receive your business data — your sales, utang, inventory, or
+          expenses are never shared with it or anyone else. The ads are generic and are not based on the data
+          you record in TindaPOS.
+        </p>
+        <p className="mb-2">
+          On first launch we ask for ad-consent where required (via Google&apos;s consent tools). Google&apos;s
+          handling of ad data is governed by its own policy:{" "}
+          <a href="https://policies.google.com/technologies/ads" style={{ color: "#0E8A82" }}>
+            Google Advertising / AdMob privacy
+          </a>. You can reset or limit your advertising ID in your Android settings.
+        </p>
         <p>
-          TindaPOS has no backend server, no database, and no cloud storage. We do not transmit,
-          collect, store, or process any of your business or personal data on any server.
-          There is no account registration or login required.
+          The paid <strong>LITE (₱50)</strong> and <strong>PRO (₱199)</strong> tiers show{" "}
+          <strong>no ads</strong>, and no advertising identifier is used for ads on those tiers.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">4. No Ads</h2>
+        <h2 className="text-lg font-bold mb-2">4. In-app purchases</h2>
         <p>
-          TindaPOS contains no advertisements and no third-party advertising SDKs.
-          We do not use advertising identifiers (IDFA, GAID) or any ad networks.
+          LITE and PRO are one-time purchases processed by <strong>Google Play Billing</strong>. Payments are
+          handled entirely by Google — we never see or store your card, GCash, or payment details. Google
+          tells us only whether a purchase was completed, so the app can unlock the tier on your device.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">5. No Third-Party Sharing</h2>
+        <h2 className="text-lg font-bold mb-2">5. No sale of your data</h2>
         <p>
-          We do not share any data with third parties because we do not collect any data.
-          No analytics, no crash reporting, no tracking SDKs are included in the app.
+          We do not sell your data, and we have no analytics, tracking, or profiling of your business activity.
+          The only third party involved is Google (for LIBRE ads and for in-app purchases), strictly for those
+          functions — never for your sales or customer records.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">6. Permissions</h2>
-        <p>TindaPOS does not request any device permissions. It does not access your:</p>
+        <p>TindaPOS keeps permissions minimal:</p>
         <ul className="list-disc ml-6 mt-2 space-y-1">
-          <li>Camera or microphone</li>
-          <li>Location</li>
-          <li>Contacts</li>
-          <li>Files or storage</li>
-          <li>Device identifiers</li>
+          <li><strong>Internet</strong> — used only to load ads (LIBRE) and process purchases. The app&apos;s core features work fully offline.</li>
+          <li><strong>Advertising ID</strong> — declared for AdMob ads on the LIBRE tier (Android 13+). Not used on LITE/PRO.</li>
         </ul>
+        <p className="mt-2">We do not access your camera, microphone, location, contacts, or personal files.</p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">7. Children&apos;s Privacy</h2>
+        <h2 className="text-lg font-bold mb-2">7. Children&apos;s privacy</h2>
         <p>
-          TindaPOS is intended for use by adults operating small businesses. It is not directed
-          at children under 13. We do not knowingly collect data from children.
+          TindaPOS is for adults operating small businesses and is not directed at children under 13. Ad
+          content is configured as non–child-directed and general-audience.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">8. Data Deletion</h2>
+        <h2 className="text-lg font-bold mb-2">8. Deleting your data</h2>
         <p>
-          Since all data is stored on your device, you can delete it at any time by clearing
-          your browser&apos;s site data or uninstalling the app. No request to us is needed.
+          Since your data lives on your device, uninstalling the app removes it. The app does not back your
+          data up to any cloud automatically — if you want a copy you can keep (and restore to a new phone),
+          use the CSV export/backup in the PRO tier.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-bold mb-2">9. Changes to This Policy</h2>
+        <h2 className="text-lg font-bold mb-2">9. Changes to this policy</h2>
         <p>
-          If we update this policy, we will update the effective date above. Continued use of
-          the app after changes constitutes acceptance of the updated policy.
+          If we update this policy, we will update the effective date above. Continued use of the app after
+          changes constitutes acceptance of the updated policy.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">10. Contact</h2>
         <p>
-          For questions about this privacy policy, contact us at:{" "}
-          <a href="mailto:kristianjvsacdalan@gmail.com" style={{ color: "#F59E0B" }}>
+          For questions about this policy, contact us at:{" "}
+          <a href="mailto:kristianjvsacdalan@gmail.com" style={{ color: "#0E8A82" }}>
             kristianjvsacdalan@gmail.com
           </a>
         </p>

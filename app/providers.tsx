@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import { Toaster } from "sonner";
+import { SplashScreen } from "@/components/SplashScreen";
+import { RouteLoader } from "@/components/RouteLoader";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -15,6 +17,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <SplashScreen />
+      <RouteLoader />
       {children}
       <Toaster
         richColors

@@ -1,130 +1,103 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import {
   LayoutDashboard,
   ShoppingCart,
   Package,
-  Receipt,
-  TrendingUp,
   Wallet,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/cart";
 
+// 4 major sections — each with its own group of routes
 const NAV = [
-  { href: "/buod",    label: "Buod",       icon: LayoutDashboard },
-  { href: "/pos",     label: "Benta",      icon: ShoppingCart },
-  { href: "/paninda", label: "Paninda",    icon: Package },
-  { href: "/benta",   label: "Kasaysayan", icon: Receipt },
-  { href: "/kita",    label: "Kita",       icon: TrendingUp },
-  { href: "/gastos",  label: "Gastos",     icon: Wallet },
+  { href: "/buod",    label: "Buod",    icon: LayoutDashboard, group: ["/buod", "/kita", "/benta"] },
+  { href: "/pos",     label: "Benta",   icon: ShoppingCart,    group: ["/pos", "/serbisyo"] },
+  { href: "/paninda", label: "Paninda", icon: Package,         group: ["/paninda"] },
+  { href: "/gastos",  label: "Gastos",  icon: Wallet,          group: ["/gastos"] },
 ];
+
+export interface TabItem {
+  href: string;
+  label: string;
+}
 
 interface AppShellProps {
   children: React.ReactNode;
   title: string;
+  tabs?: TabItem[];
 }
 
-export function AppShell({ children, title }: AppShellProps) {
+export function AppShell({ children, title, tabs }: AppShellProps) {
   const pathname = usePathname();
   const itemCount = useCartStore((s) => s.itemCount());
-  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="flex h-dvh bg-[var(--bg)]">
-      {/* ── Tablet sidebar (md+) ── */}
-      <aside
-        className={cn(
-          "hidden md:flex flex-col border-r border-[var(--border)] bg-[var(--card)] transition-all duration-200",
-          collapsed ? "w-16" : "w-52"
-        )}
-      >
-        {/* Brand */}
-        <div className={cn(
-          "flex items-center gap-2.5 px-4 py-4 border-b border-[var(--border)]",
-          collapsed && "justify-center px-0"
-        )}>
-          <div className="w-8 h-8 shrink-0 rounded-lg bg-[var(--accent)] flex items-center justify-center">
-            <span className="text-white font-bold text-sm">₱</span>
-          </div>
-          {!collapsed && (
-            <span className="font-bold text-[var(--fg)] text-base truncate">TindaPOS</span>
-          )}
-        </div>
+    <div className="fixed inset-0 flex flex-col bg-[var(--bg)] overflow-hidden">
+      <div className="flex flex-col w-full h-full overflow-hidden">
 
-        {/* Nav items */}
-        <nav className="flex-1 flex flex-col gap-1 p-2 overflow-y-auto">
-          {NAV.map(({ href, label, icon: Icon }) => {
-            const active = pathname === href;
-            const isPOS = href === "/pos";
-            return (
-              <Link
-                key={href}
-                href={href}
-                title={collapsed ? label : undefined}
-                className={cn(
-                  "flex items-center gap-3 rounded-xl px-3 py-3 font-semibold text-sm transition-colors relative",
-                  active
-                    ? "bg-[var(--accent-soft)] text-[var(--accent-dark)]"
-                    : "text-[var(--fg-muted)] hover:bg-[var(--input-bg)] hover:text-[var(--fg)]",
-                  collapsed && "justify-center px-0"
-                )}
-              >
-                <div className="relative shrink-0">
-                  <Icon size={20} strokeWidth={active ? 2.5 : 1.75} />
-                  {isPOS && itemCount > 0 && (
-                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[var(--accent)] text-white text-[9px] font-bold flex items-center justify-center">
-                      {itemCount > 9 ? "9+" : itemCount}
-                    </span>
-                  )}
-                </div>
-                {!collapsed && <span className="truncate">{label}</span>}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Collapse toggle */}
-        <button
-          onClick={() => setCollapsed((c) => !c)}
-          className={cn(
-            "flex items-center gap-2 px-3 py-3 m-2 rounded-xl text-[var(--fg-muted)] hover:bg-[var(--input-bg)] hover:text-[var(--fg)] transition-colors text-sm font-semibold",
-            collapsed && "justify-center px-0"
-          )}
-        >
-          {collapsed ? <ChevronRight size={16} /> : <><ChevronLeft size={16} /><span>Itago</span></>}
-        </button>
-      </aside>
-
-      {/* ── Main content area ── */}
-      <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
         {/* Header */}
-        <header className="flex items-center gap-3 px-4 py-3 bg-[var(--card)] border-b border-[var(--border)] safe-top shrink-0">
-          {/* Mobile brand */}
-          <div className="flex md:hidden items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-[var(--accent)] flex items-center justify-center">
-              <span className="text-white font-bold text-xs">₱</span>
+        <header className="bg-[var(--accent)] safe-top shrink-0">
+          {/* Brand area */}
+          <div
+            className="flex items-center justify-between px-4 py-3"
+            style={tabs && tabs.length > 0 ? { borderBottom: "1px solid rgba(255,255,255,0.22)" } : undefined}
+          >
+            <div className="flex items-center gap-3">
+              <Image
+                src="/icons/icon-192.png"
+                alt="TindaPOS"
+                width={36}
+                height={36}
+                className="rounded-xl"
+              />
+              <div className="flex flex-col">
+                <span className="font-black text-white text-lg leading-tight tracking-tight">TindaPOS</span>
+                <span className="text-white/70 text-xs font-medium leading-tight">{title}</span>
+              </div>
             </div>
-            <span className="font-bold text-[var(--fg)] text-sm">TindaPOS</span>
           </div>
-          <span className="text-[var(--fg-muted)] md:hidden text-sm">·</span>
-          <h1 className="font-bold text-[var(--fg)] text-sm">{title}</h1>
+
+          {/* Sub-tabs (if provided) — on a slightly darker amber band */}
+          {tabs && tabs.length > 0 && (
+            <div
+              className="flex gap-1.5 px-3 py-2 overflow-x-auto"
+              style={{ background: "var(--accent-dark)" }}
+            >
+              {tabs.map((t) => {
+                const tabActive = pathname === t.href;
+                return (
+                  <Link
+                    key={t.href}
+                    href={t.href}
+                    className={cn(
+                      "shrink-0 px-4 py-1.5 rounded-full text-xs font-bold transition-colors",
+                      tabActive
+                        ? "bg-white text-[var(--accent-dark)] shadow-sm"
+                        : "text-white/80 bg-white/10 hover:bg-white/20 hover:text-white"
+                    )}
+                  >
+                    {t.label}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </header>
 
         {/* Page body */}
         <main className="flex-1 overflow-y-auto">{children}</main>
 
-        {/* ── Phone bottom tab nav (< md) ── */}
-        <nav className="md:hidden bg-[var(--card)] border-t border-[var(--border)] safe-bottom shrink-0">
-          <div className="grid grid-cols-6 h-16">
-            {NAV.map(({ href, label, icon: Icon }) => {
-              const active = pathname === href;
-              const isPOS = href === "/pos";
+        {/* Bottom tab nav — always visible */}
+        <nav className="bg-[var(--card)] border-t border-[var(--border)] safe-bottom shrink-0">
+          <div className="grid grid-cols-4 h-16">
+            {NAV.map(({ href, label, icon: Icon, group }) => {
+              // Active if current pathname is in this tab's group
+              const active = group.some((g) => pathname === g || pathname.startsWith(g + "/"));
+              const isBenta = label === "Benta";
               return (
                 <Link
                   key={href}
@@ -138,14 +111,14 @@ export function AppShell({ children, title }: AppShellProps) {
                     <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-[var(--accent)] rounded-b-full" />
                   )}
                   <div className="relative">
-                    <Icon size={20} strokeWidth={active ? 2.5 : 1.75} />
-                    {isPOS && itemCount > 0 && (
+                    <Icon size={22} strokeWidth={active ? 2.5 : 1.75} />
+                    {isBenta && itemCount > 0 && (
                       <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[var(--accent)] text-white text-[9px] font-bold flex items-center justify-center">
                         {itemCount > 9 ? "9+" : itemCount}
                       </span>
                     )}
                   </div>
-                  <span className="text-[10px] leading-none font-medium">{label}</span>
+                  <span className="text-[11px] leading-none font-semibold">{label}</span>
                 </Link>
               );
             })}

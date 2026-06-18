@@ -6,16 +6,9 @@ import { Plus, Trash2, Wallet } from "lucide-react";
 import { toast } from "sonner";
 import { db } from "@/lib/db";
 import { Button } from "@/components/ui/button";
-import { formatPeso, formatDate, startOfDay, startOfWeek, startOfMonth, cn } from "@/lib/utils";
+import { formatPeso, formatDate, cn } from "@/lib/utils";
 import { ExpenseForm } from "./ExpenseForm";
-
-type Range = "today" | "week" | "month" | "all";
-const RANGE_LABELS: Record<Range, string> = {
-  today: "Ngayon",
-  week: "Linggong ito",
-  month: "Buwang ito",
-  all: "Lahat",
-};
+import { DateRangePicker, buildRange, type DateRange } from "@/components/ui/DateRangePicker";
 
 const CATEGORY_COLORS: Record<string, string> = {
   Kuryente: "bg-yellow-100 text-yellow-700",
@@ -28,19 +21,18 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export function ExpenseList() {
-  const [range, setRange] = useState<Range>("today");
+  const [range, setRange] = useState<DateRange>(buildRange("today"));
   const [showForm, setShowForm] = useState(false);
   const [deleteId, setDeleteId] = useState<number | null>(null);
 
-  const rangeStart =
-    range === "today" ? startOfDay().getTime()
-    : range === "week" ? startOfWeek().getTime()
-    : range === "month" ? startOfMonth().getTime()
-    : 0;
-
   const expenses = useLiveQuery(
-    () => db.expenses.where("date").aboveOrEqual(rangeStart).reverse().toArray(),
-    [rangeStart]
+    () =>
+      db.expenses
+        .where("date")
+        .between(range.start, range.end, true, true)
+        .reverse()
+        .toArray(),
+    [range.start, range.end]
   );
 
   const total = (expenses ?? []).reduce((s, e) => s + e.amount, 0);
@@ -54,28 +46,17 @@ export function ExpenseList() {
   return (
     <>
       <div className="flex flex-col h-full">
-        {/* Toolbar */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-[var(--border)] shrink-0">
-          <div className="flex gap-2 flex-1 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
-            {(Object.keys(RANGE_LABELS) as Range[]).map((r) => (
-              <button
-                key={r}
-                onClick={() => setRange(r)}
-                className={cn(
-                  "shrink-0 h-9 px-4 rounded-full text-sm font-semibold transition-colors",
-                  range === r
-                    ? "bg-[var(--accent)] text-white"
-                    : "bg-[var(--input-bg)] text-[var(--fg-muted)] hover:bg-[var(--border)]"
-                )}
-              >
-                {RANGE_LABELS[r]}
-              </button>
-            ))}
+        {/* Toolbar — date range + add button */}
+        <div className="px-4 py-3 border-b border-[var(--border)] shrink-0 space-y-2">
+          <div className="flex items-start gap-3">
+            <div className="flex-1 min-w-0">
+              <DateRangePicker value={range} onChange={setRange} />
+            </div>
+            <Button size="sm" onClick={() => setShowForm(true)} className="shrink-0 gap-1 mt-0">
+              <Plus size={16} strokeWidth={2.5} />
+              <span className="hidden sm:inline">Idagdag</span>
+            </Button>
           </div>
-          <Button size="sm" onClick={() => setShowForm(true)} className="shrink-0 gap-1">
-            <Plus size={16} strokeWidth={2.5} />
-            <span className="hidden sm:inline">Idagdag</span>
-          </Button>
         </div>
 
         {/* Total */}

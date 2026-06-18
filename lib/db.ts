@@ -43,11 +43,30 @@ export interface Expense {
   notes: string;
 }
 
+// ── Serbisyo: GCash cash-in/out + e-load tracking ──
+export type ServiceType = "gcash-in" | "gcash-out" | "load";
+
+export const NETWORKS = ["Globe", "Smart", "TNT", "TM", "DITO", "Sun"] as const;
+export type Network = (typeof NETWORKS)[number];
+
+export interface ServiceTxn {
+  id?: number;
+  type: ServiceType;
+  amount: number;        // principal (GCash sent/received, or load denomination)
+  fee: number;           // service fee / load margin charged to customer
+  network?: Network;     // load only
+  mobileNumber?: string; // optional — customer phone
+  reference?: string;    // GCash ref # (optional)
+  notes?: string;
+  createdAt: number;
+}
+
 class TindaDB extends Dexie {
   products!: Table<Product, number>;
   categories!: Table<Category, number>;
   transactions!: Table<Transaction, number>;
   expenses!: Table<Expense, number>;
+  services!: Table<ServiceTxn, number>;
 
   constructor() {
     super("tinda-pos-db");
@@ -56,6 +75,14 @@ class TindaDB extends Dexie {
       categories: "++id, name",
       transactions: "++id, createdAt",
       expenses: "++id, date, category",
+    });
+    // v2 — add Serbisyo (GCash + Load) tracking
+    this.version(2).stores({
+      products: "++id, name, category, createdAt",
+      categories: "++id, name",
+      transactions: "++id, createdAt",
+      expenses: "++id, date, category",
+      services: "++id, type, createdAt",
     });
   }
 }
