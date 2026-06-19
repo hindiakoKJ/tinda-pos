@@ -1,6 +1,6 @@
 {
-  "name": "TindaPOS",
-  "short_name": "TindaPOS",
+  "name": "SariAssist",
+  "short_name": "SariAssist",
   "description": "Ang POS ng bawat tindahan",
   "id": "/buod",
   "start_url": "/buod/",
@@ -46,14 +46,14 @@
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "TindaPOS Dashboard"
+      "label": "SariAssist Dashboard"
     },
     {
       "src": "/screenshots/screen-narrow.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "TindaPOS POS Screen"
+      "label": "SariAssist POS Screen"
     }
   ],
   "shortcuts": [

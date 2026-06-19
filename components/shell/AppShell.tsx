@@ -49,13 +49,13 @@ export function AppShell({ children, title, tabs }: AppShellProps) {
             <div className="flex items-center gap-3">
               <Image
                 src="/icons/icon-192.png"
-                alt="TindaPOS"
+                alt="SariAssist"
                 width={36}
                 height={36}
                 className="rounded-xl"
               />
               <div className="flex flex-col">
-                <span className="font-black text-white text-lg leading-tight tracking-tight">TindaPOS</span>
+                <span className="font-black text-white text-lg leading-tight tracking-tight">SariAssist</span>
                 <span className="text-white/70 text-xs font-medium leading-tight">{title}</span>
               </div>
             </div>

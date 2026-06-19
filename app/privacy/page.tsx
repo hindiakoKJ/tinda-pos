@@ -1,18 +1,18 @@
 export const metadata = {
-  title: "Privacy Policy — TindaPOS",
-  description: "Privacy policy for TindaPOS",
+  title: "Privacy Policy — SariAssist",
+  description: "Privacy policy for SariAssist",
 };
 
 export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto px-6 py-12 text-sm leading-relaxed" style={{ color: "#1A1714", fontFamily: "sans-serif" }}>
-      <h1 className="text-2xl font-bold mb-2" style={{ color: "#0E8A82" }}>TindaPOS — Privacy Policy</h1>
+      <h1 className="text-2xl font-bold mb-2" style={{ color: "#0E8A82" }}>SariAssist — Privacy Policy</h1>
       <p className="text-xs mb-8" style={{ color: "#6B6460" }}>Effective date: June 18, 2026</p>
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">1. Overview</h2>
         <p>
-          TindaPOS is an offline-first point-of-sale app for Filipino sari-sari store owners. Your business
+          SariAssist is an offline-first point-of-sale app for Filipino sari-sari store owners. Your business
           data stays on your device. This policy explains exactly what stays private, and the one place a
           third party is involved: ads on the free (LIBRE) tier.
         </p>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
         <p className="mb-2">
           Google AdMob does <strong>not</strong> receive your business data — your sales, utang, inventory, or
           expenses are never shared with it or anyone else. The ads are generic and are not based on the data
-          you record in TindaPOS.
+          you record in SariAssist.
         </p>
         <p className="mb-2">
           On first launch we ask for ad-consent where required (via Google&apos;s consent tools). Google&apos;s
@@ -75,7 +75,7 @@ export default function PrivacyPage() {
 
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">6. Permissions</h2>
-        <p>TindaPOS keeps permissions minimal:</p>
+        <p>SariAssist keeps permissions minimal:</p>
         <ul className="list-disc ml-6 mt-2 space-y-1">
           <li><strong>Internet</strong> — used only to load ads (LIBRE) and process purchases. The app&apos;s core features work fully offline.</li>
           <li><strong>Advertising ID</strong> — declared for AdMob ads on the LIBRE tier (Android 13+). Not used on LITE/PRO.</li>
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
       <section className="mb-8">
         <h2 className="text-lg font-bold mb-2">7. Children&apos;s privacy</h2>
         <p>
-          TindaPOS is for adults operating small businesses and is not directed at children under 13. Ad
+          SariAssist is for adults operating small businesses and is not directed at children under 13. Ad
           content is configured as non–child-directed and general-audience.
         </p>
       </section>
@@ -119,7 +119,7 @@ export default function PrivacyPage() {
       </section>
 
       <p className="text-xs mt-12" style={{ color: "#6B6460" }}>
-        TindaPOS is developed by HNScorp · Philippines
+        SariAssist is developed by HNScorp · Philippines
       </p>
     </main>
   );

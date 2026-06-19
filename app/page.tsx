@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "TindaPOS — Iyong tindahan. Iyong datos. Iyo lang. | Offline POS para sa sari-sari store",
+  title: "SariAssist — Iyong tindahan. Iyong datos. Iyo lang. | Offline POS para sa sari-sari store",
   description:
     "Offline-first POS para sa sari-sari store: benta, utang, stock, at kita — kahit walang internet. Nasa phone mo lang ang datos, walang server, hindi ibinebenta. Libre habang buhay (may maliit na ad); ₱50 para walang ads; ₱199 PRO na may backup. Isang beses lang, walang subscription.",
 };
@@ -23,8 +23,8 @@ export default function LandingPage() {
       {/* ── Nav ── */}
       <nav style={{ background: TEAL }} className="px-6 py-4 flex items-center justify-between sticky top-0 z-20">
         <div className="flex items-center gap-3">
-          <Image src="/icons/icon-192.png" alt="TindaPOS" width={34} height={34} className="rounded-lg" />
-          <span className="font-black text-white text-xl tracking-tight">TindaPOS</span>
+          <Image src="/icons/icon-192.png" alt="SariAssist" width={34} height={34} className="rounded-lg" />
+          <span className="font-black text-white text-xl tracking-tight">SariAssist</span>
         </div>
         <a href={PLAY_URL} className="text-sm font-bold px-5 py-2 rounded-full" style={{ background: "white", color: TEAL }}>
           ▶ Kunin sa Google Play
@@ -35,7 +35,7 @@ export default function LandingPage() {
       <section className="px-6 pt-14 pb-12 text-center max-w-3xl mx-auto">
         <div className="flex justify-center mb-7">
           <div className="rounded-3xl overflow-hidden shadow-xl" style={{ width: 104, height: 104 }}>
-            <Image src="/icons/icon-512.png" alt="TindaPOS icon" width={104} height={104} />
+            <Image src="/icons/icon-512.png" alt="SariAssist icon" width={104} height={104} />
           </div>
         </div>
         <h1 className="text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-5">
@@ -131,7 +131,7 @@ export default function LandingPage() {
           <div className="rounded-3xl border-2 overflow-hidden" style={{ background: "white", borderColor: BORDER }}>
             <div className="grid grid-cols-2 text-sm sm:text-base">
               <div className="p-4 sm:p-5 font-bold text-center border-r-2 border-b-2" style={{ borderColor: BORDER, background: "#FBE9E2", color: "#7A1F0A" }}>Ibang app</div>
-              <div className="p-4 sm:p-5 font-bold text-center border-b-2" style={{ borderColor: BORDER, background: "#E2F4F0", color: TEAL_DEEP }}>TindaPOS</div>
+              <div className="p-4 sm:p-5 font-bold text-center border-b-2" style={{ borderColor: BORDER, background: "#E2F4F0", color: TEAL_DEEP }}>SariAssist</div>
               {[
                 ["Pumupunta sa kanilang server ang benta mo (kailangan ng account/cloud)", "Nasa cellphone mo lang — walang server, kaya physically hindi makakaalis ang datos mo"],
                 ["May FMCG (gaya ng GrowSari/Sari.PH) na minomonitor ang inventory at benta mo para sa supplier", "Walang FMCG, walang supplier middleman na nakatingin sa tindahan mo"],
@@ -146,7 +146,7 @@ export default function LandingPage() {
 
           <p className="text-center mt-6 text-sm leading-relaxed" style={{ color: MUTED }}>
             Para patas: hindi namin sinasabing bayad o online ang ibang app — marami ring libre at offline.
-            Ang pinagkaiba ng TindaPOS ay nasa phone mo lang ang datos (walang server para sa benta mo),
+            Ang pinagkaiba ng SariAssist ay nasa phone mo lang ang datos (walang server para sa benta mo),
             walang FMCG na nakatingin, at isang beses lang ang bayad imbes na ikaw ang maging produkto.
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function LandingPage() {
       <section className="px-6 py-16 max-w-2xl mx-auto text-center">
         <h2 className="text-3xl font-black tracking-tight mb-3">Maging isa sa mga unang tindera</h2>
         <p className="text-base mb-8" style={{ color: MUTED }}>
-          Bagong app pa lang ang TindaPOS — gawa ng mga Pilipino, para sa mga Pilipino. Walang pekeng review,
+          Bagong app pa lang ang SariAssist — gawa ng mga Pilipino, para sa mga Pilipino. Walang pekeng review,
           walang bayad na endorser. Subukan mo nang libre, at sabihin sa amin kung ano ang pwede pang gawing mas maganda.
         </p>
         <a href={PLAY_URL} className="inline-block font-bold text-base px-7 py-3 rounded-full" style={{ background: TEAL, color: "white" }}>
@@ -220,9 +220,9 @@ export default function LandingPage() {
           <p className="text-center text-base mb-10" style={{ color: MUTED }}>Tapatan tayo. Heto ang totoong sagot.</p>
           <div className="flex flex-col gap-3">
             {[
-              ["Bakit may bayad kung libre ang iba?", "Libre talaga ang LIBRE habang buhay — kumpleto ang features. Magbabayad ka lang ng ₱50 o ₱199, isang beses lang, para alisin ang ad at makakuha ng backup. Walang subscription. Marami sa “libreng” app ay kumikita sa datos mo o sa supplier deals — sa TindaPOS, maliit na one-time bayad imbes na ikaw ang produkto."],
-              ["Ligtas ba ang datos ko? Ibebenta niyo ba?", "Walang server at walang account ang TindaPOS, kaya physically hindi makakaalis sa phone mo ang datos ng tindahan — walang lugar kung saan ito pupunta o ibebenta. Hinding-hindi namin ibinebenta ang datos mo kahit kailan."],
-              ["Kailangan ba ng internet?", "Hindi. Offline-first ang TindaPOS — kaya mong mag-record ng benta, utang, at inventory nang walang data o load. Optional lang ang internet (ginagamit lang ito kung may ad sa LIBRE o kapag nag-back up sa PRO)."],
+              ["Bakit may bayad kung libre ang iba?", "Libre talaga ang LIBRE habang buhay — kumpleto ang features. Magbabayad ka lang ng ₱50 o ₱199, isang beses lang, para alisin ang ad at makakuha ng backup. Walang subscription. Marami sa “libreng” app ay kumikita sa datos mo o sa supplier deals — sa SariAssist, maliit na one-time bayad imbes na ikaw ang produkto."],
+              ["Ligtas ba ang datos ko? Ibebenta niyo ba?", "Walang server at walang account ang SariAssist, kaya physically hindi makakaalis sa phone mo ang datos ng tindahan — walang lugar kung saan ito pupunta o ibebenta. Hinding-hindi namin ibinebenta ang datos mo kahit kailan."],
+              ["Kailangan ba ng internet?", "Hindi. Offline-first ang SariAssist — kaya mong mag-record ng benta, utang, at inventory nang walang data o load. Optional lang ang internet (ginagamit lang ito kung may ad sa LIBRE o kapag nag-back up sa PRO)."],
               ["May ads ba?", "Tapat kami: sa LIBRE may iisang maliit na banner galing Google AdMob — generic lang, hindi base sa benta o gawi mo. Sa LITE at PRO, walang ads at walang ad tracking. Hindi namin sinasabing “walang ads” ang buong app — may ad ang LIBRE, at tapat kami diyan."],
               ["Pwede ba alisin ang ads?", "Oo. ₱50 (LITE) o ₱199 (PRO), isang beses lang, at mawawala ang ad habang buhay — walang buwanang bayad para panatilihing wala. Sa PRO, may backup/export pa para ligtas ang datos mo."],
               ["Paano kung mawala o mapalitan ang phone — mawawala ba lahat?", "Tapat tayo: dahil nasa device lang ang datos, mawawala ito kapag nawala ang phone — maliban kung naka-backup. Kaya may CSV export/backup ang PRO (₱199): pwede mong i-save at ilipat ang datos sa bagong phone. Ito ang pinakamatibay na dahilan para mag-PRO."],

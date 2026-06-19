@@ -1,4 +1,4 @@
-// Regenerate the full TindaPOS icon set in TEAL (#0E8A82) for both the PWA
+// Regenerate the full SariAssist icon set in TEAL (#0E8A82) for both the PWA
 // (tinda-pos/public) and the native app (tindapos-native/assets).
 // Uses sharp (librsvg) to rasterize recolored SVGs. Run: node scripts/gen-teal-icons.mjs
 import sharp from "sharp";

@@ -10,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "TindaPOS",
+  title: "SariAssist",
   description: "Ang POS ng bawat tindahan",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "TindaPOS",
+    title: "SariAssist",
   },
 };
 

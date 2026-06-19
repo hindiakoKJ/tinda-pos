@@ -9,7 +9,7 @@ export function SplashScreen() {
       <div className="relative w-full max-w-[640px] aspect-[1024/500] px-4">
         <Image
           src="/feature-graphic.png"
-          alt="TindaPOS — Ang POS ng bawat tindahan"
+          alt="SariAssist — Ang POS ng bawat tindahan"
           fill
           priority
           sizes="(max-width: 640px) 100vw, 640px"
